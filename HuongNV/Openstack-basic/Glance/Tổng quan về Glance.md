@@ -80,7 +80,7 @@ Glance giữ lại thông tin về image, image không sẵn sàng được sử
 giống như *deleted* state nhưng Glance sẽ không removed image dât, các image ở trạng thai này sẽ không thể phục hồi được
 
 
-<a name=""4>></a>
+<a name="4">></a>
 
 **4. Disk format**
 
