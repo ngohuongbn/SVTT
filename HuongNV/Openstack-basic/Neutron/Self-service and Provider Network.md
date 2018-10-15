@@ -11,7 +11,7 @@
 
 # 1. Self-service network
 
-Self-service network được dùng cho general projects(non-privileged) mà không cần đến admin. Các mạng này đều là virtual network, nó cần virtual routers để có thể định tuyến giữa các traffic và access to thẻ Internet. Self-service provide DHCP và metadata service tới các instances
+Self-service network được dùng cho general projects(non-privileged) mà không cần đến admin. Các mạng này đều là virtual network, nó cần virtual routers để có thể định tuyến giữa các traffic và truy cập Internet. Self-service provide DHCP và metadata service tới các instances
 
 Trong thực tế, self-service sử dụng overlay protocol như VXLAN hoặc GRE. Ưu điểm là nó hỗ trợ many more networks khi là sử dụng VLAN tagging. Khi sử dụng VLAN tagging, ta cần phải configuration physical network infrastructure.
 
