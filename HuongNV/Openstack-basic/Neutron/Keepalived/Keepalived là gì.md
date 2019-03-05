@@ -4,8 +4,9 @@
 - [1. Keepalive là gì?](#1)
 - [2. Keepalived Failure IP hoạt động như thế nào?](#2)
 - [3. Configure Keepalived](#3)
-    - [3.1 3.1 Global Definitions](#31)
-    - [3.2 3.2 VRRP instances](#32)
+    - [3.1 Global Definitions](#31)
+    - [3.2 VRRP instances definitions](#32)
+    - [3.3 VRRP server definitions](#33)
 
 <a name="1"></a>
 
@@ -167,7 +168,42 @@ vrrp_instance RH_INT {
 }
 ```
 
+<a name="3"></a>
 
+# 3. VRRP server definitions 
+Virtual server có thể định nghĩa như sau:
+```
+virtual_server <IPADDR>, <PORT>, fwmark <INTEGER>
+hoặc
+virtual_server <IPADDR><PORT>
+virtual_server fwmark <INTEGER>
+virtual_server group <STRING> {
+    # định nghĩa khoảng thời gian delay giữa các lần checking
+    delay_loop <INTEGER>
+
+    # thuật toán sử dụng
+    lvs_sched rr|wrr|lc|wlc|lblc|sh|mh|dh|fo|ovf|lblcr|sed|nq
+
+    # khai báo method
+    lvs_method NAT|DR|TUN
+
+    # L4 protocol
+    protocol TCP|UDP|SCTP
+
+    # Khai báo persistence_timeout. Default là 6 minitues
+    persistence_timeout <INTEGER>
+
+    # server được add vào pool nếu mọi server đều bị down
+    sorry_server <IPADDR> <PORT>
+
+    real_server <IPADDR> <PORT> {
+        # cấu hình trọng số, default:1
+        weight <INTEGER>
+
+        # LVS forwarding method
+        lvs_method NAT|DR|TUN
+    }
+}
 
 
 

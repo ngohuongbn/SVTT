@@ -53,7 +53,7 @@ Cung cấp các dịch vụ mạng bổ sung cho project network
 Một standard Openstack networking có 4 loại network như sau:
 
 * Management network:
-    - Sử dụng cho việc comminicate giữa các Openstack service
+    - Sử dụng cho việc communicate giữa các Openstack service
     - IP address on this network được sử dụng trong local 
 
 * Guest network:
